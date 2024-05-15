@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <cmath>
 #include <cstring>
 #include <ctime>
@@ -49,20 +49,6 @@ long long Modular_Exonentiation(long long a, int b, int n)
 	return d;
 }
 
-// Генерация простых чисел в пределах 1000
-int ProducePrimeNumber(int prime[])
-{
-	int c = 0, vis[1001];
-	memset(vis, 0, sizeof(vis));
-	for (int i = 2; i <= 1000; i++)if (!vis[i])
-	{
-		prime[c++] = i;
-		for (int j = i * i; j <= 1000; j += i)
-			vis[j] = 1;
-	}
-
-	return c;
-}
 
 
 // Расширенный алгоритм Евклида
@@ -88,15 +74,12 @@ int Exgcd(int m, int n, int& x)
 // Инициализация RSA
 void RSA_Initialize()
 {
-	// Вынимаем простые числа в пределах 1000 и сохраняем их в массиве prime []
-	int prime[5000];
-	int count_Prime = ProducePrimeNumber(prime);
-
+	
 	// Случайно возьмем два простых числа p, q
 	srand((unsigned)time(NULL));
-	int ranNum1 = rand() % count_Prime;
-	int ranNum2 = rand() % count_Prime;
-	int p = prime[ranNum1], q = prime[ranNum2];
+	int ranNum1 = 277;
+	int ranNum2 = 167;
+	int p = ranNum1, q = ranNum2;
 
 	n = p * q;
 
